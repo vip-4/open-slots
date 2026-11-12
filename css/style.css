@@ -1,0 +1,174 @@
+/* Open Slots — 基于上游 src/css/style.css 改造
+ * 改动：移除 bootstrap-reboot CDN 依赖（内置极简 reset）、统一使用较小的背景图、
+ *       body 改为可滚动布局以承载 SEO/GEO 正文、补充内容区样式与可访问性规则。
+ * 游戏本体所需的 #slot / #reels / .reel / .icons 规则保持与上游一致。
+ */
+
+/* ---- reset（替代 bootstrap-reboot，零外部请求） ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, ul, ol, dl, dd, table, figure { margin: 0; }
+button, input { font: inherit; }
+img, svg { max-width: 100%; }
+
+:root {
+  --ink: #0b0b0f;
+  --panel: #14131b;
+  --gold: #e9c46a;
+  --text: #f4efe3;
+  --muted: #b6b0c0;
+  --line: rgba(233, 196, 106, .22);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 0;
+  color: var(--text);
+  background-color: var(--ink);
+  background-image: url("../assets/bg_small.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ---- 可访问性辅助 ---- */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  padding: 10px 16px; background: var(--gold); color: #1a1408; font-weight: 700;
+  border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---- 站点页眉 ---- */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px clamp(12px, 3vw, 28px);
+  background: rgba(7, 7, 11, .82);
+  border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.site-header .brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 4vw, 24px); letter-spacing: .05em; color: var(--gold);
+}
+.site-header .badge {
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px;
+}
+.site-header nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; }
+.site-header nav a, .site-footer a, .content a {
+  color: var(--gold); text-decoration: underline; text-underline-offset: 3px;
+}
+.site-header nav a:hover, .content a:hover { color: #fff0c2; }
+
+/* ---- 游戏区：首屏居中，DOM 结构与上游一致 ---- */
+#game {
+  min-height: calc(100svh - 130px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 16px clamp(10px, 3vw, 28px) 24px;
+  gap: 10px;
+}
+#slot { width: 100%; max-width: 940px; }
+#jackpot {
+  color: #d5ad6d; font-size: clamp(20px, 4.5vw, 40px); text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .8);
+}
+#reels {
+  display: flex;
+  width: min(92vw, 900px);
+  aspect-ratio: 5 / 3;
+  max-height: 62vh;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, .38);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.reel { overflow: hidden; width: 20%; height: 100%; position: relative; }
+.reel > .icons { position: relative; }
+.reel > .icons > img {
+  width: calc(100% + 6px);
+  margin: -3px 0 0 -3px;
+  height: auto;
+  transform: translate3d(0, 0, 0); /* GPU 加速，修复 iOS 闪烁 */
+}
+#controls {
+  background-color: rgba(255, 255, 255, .92);
+  min-height: 50px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px clamp(12px, 4vw, 30px);
+  border-radius: 0 0 10px 10px;
+  color: #1a1408;
+}
+#controls button {
+  cursor: pointer; font-weight: 700; letter-spacing: .08em;
+  padding: 8px 22px; border: 0; border-radius: 8px;
+  background: linear-gradient(180deg, #f4d587, #c99b3f); color: #1a1408;
+}
+#controls button:disabled { opacity: .55; cursor: progress; }
+#controls label { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+#controls label input { width: 22px; height: 22px; accent-color: #9a7126; }
+#slot.inverted .reel { transform: scaleY(-1); }
+#slot.inverted .reel > .icons > img { transform: scaleY(-1); }
+.game-note {
+  font-size: 12px; color: var(--muted); text-align: center;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .9);
+}
+
+/* ---- 可索引内容区（SEO / GEO） ---- */
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px clamp(16px, 4vw, 32px);
+  background: rgba(11, 11, 15, .90);
+  border-top: 1px solid var(--line);
+}
+.content + .content { border-top: 1px solid rgba(255, 255, 255, .07); }
+.content h2 {
+  font-family: Georgia, serif; color: var(--gold);
+  font-size: clamp(21px, 4.5vw, 29px); margin-bottom: 12px;
+}
+.content p { margin-bottom: 12px; color: #e6e0d2; }
+.content strong { color: var(--text); }
+.content abbr { text-decoration: underline dotted; cursor: help; }
+.feature-list, .steps { padding-left: 22px; margin: 0 0 12px; color: #e6e0d2; }
+.feature-list li, .steps li { margin-bottom: 7px; }
+.note {
+  font-size: 13px; color: var(--muted);
+  border-left: 3px solid var(--gold); padding-left: 12px;
+}
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+caption { text-align: left; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid rgba(255, 255, 255, .09); }
+th { color: var(--gold); font-weight: 600; }
+td code { color: #cde7ff; font-size: 12px; }
+.faq dt { color: var(--gold); font-weight: 600; margin-top: 14px; }
+.faq dd { margin: 4px 0 0; color: #e6e0d2; }
+
+.site-footer {
+  text-align: center; padding: 24px 16px 32px;
+  border-top: 1px solid var(--line);
+  background: rgba(7, 7, 11, .92);
+  color: var(--muted); font-size: 12px;
+}
+.site-footer p + p { margin-top: 8px; }
+
+@media (max-width: 600px) {
+  .site-header { justify-content: center; text-align: center; }
+  .site-header .badge { display: none; }
+  #reels { max-height: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

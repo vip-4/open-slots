@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0f">
+
+<title>Open Slots — Free Open-Source HTML5 Slot Machine (Play Money)</title>
+<meta name="description" content="Play Open Slots, a free open-source HTML5 slot machine built with vanilla JavaScript and the Web Animations API. Five reels, nine symbols, autoplay, no download, no sign-up, no real money. 18+ play-money demo.">
+<meta name="keywords" content="open source slot machine, HTML5 casino game, vanilla JavaScript slots, Web Animations API, free play-money slots, browser slot demo, five reel slot, no download slots">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Open Slots (upstream: johakr/html5-slot-machine)">
+<link rel="canonical" href="https://open-slots.pages.dev/">
+<link rel="alternate" hreflang="en" href="https://open-slots.pages.dev/">
+<link rel="alternate" hreflang="x-default" href="https://open-slots.pages.dev/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Open Slots">
+<meta property="og:title" content="Open Slots — Free Open-Source HTML5 Slot Machine">
+<meta property="og:description" content="A free, open-source five-reel slot machine built with plain JavaScript and the Web Animations API. Play money only, 18+.">
+<meta property="og:url" content="https://open-slots.pages.dev/">
+<meta property="og:image" content="https://open-slots.pages.dev/assets/bg_small.jpg">
+<meta property="og:image:alt" content="Open Slots five-reel casino game interface on a dark background">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Open Slots — Free Open-Source HTML5 Slot Machine">
+<meta name="twitter:description" content="Five reels, nine symbols, pure vanilla JavaScript. Free play-money demo, 18+, no download.">
+<meta name="twitter:image" content="https://open-slots.pages.dev/assets/bg_small.jpg">
+<meta name="twitter:image:alt" content="Open Slots five-reel casino game interface">
+
+<link rel="icon" type="image/svg+xml" href="./assets/symbols/falcon.svg">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="stylesheet" href="./css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://open-slots.pages.dev/#website",
+      "url": "https://open-slots.pages.dev/",
+      "name": "Open Slots",
+      "description": "Free open-source HTML5 play-money slot machine built with vanilla JavaScript.",
+      "inLanguage": "en",
+      "license": "https://opensource.org/licenses/MIT"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://open-slots.pages.dev/#webpage",
+      "url": "https://open-slots.pages.dev/",
+      "title": "Open Slots — Free Open-Source HTML5 Slot Machine (Play Money)",
+      "isPartOf": { "@id": "https://open-slots.pages.dev/#website" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://open-slots.pages.dev/#game",
+      "name": "Open Slots",
+      "description": "A five-reel, play-money slot machine demo built with plain HTML, CSS and JavaScript using the Web Animations API. No real-money wagering.",
+      "url": "https://open-slots.pages.dev/",
+      "genre": ["Casino", "Slot machine", "Arcade"],
+      "gamePlatform": "Any modern web browser",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 18 },
+      "sourceOrganization": {
+        "@type": "Organization",
+        "name": "johakr/html5-slot-machine",
+        "url": "https://github.com/johakr/html5-slot-machine"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://open-slots.pages.dev/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Open Slots free to play?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is a free, open-source browser demo. There are no accounts, no payments, no downloads and no real-money wagering." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this game pay real money?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Open Slots is a play-money demonstration. It has no cash-out, no deposits, no prizes and no payout table. The jackpot counter is decorative." }
+        },
+        {
+          "@type": "Question",
+          "name": "What technology powers the reels?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Plain HTML, CSS and vanilla JavaScript. Reel motion uses the browser's native Web Animations API, with no frameworks, no Flash and no external runtime dependencies." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many reels and symbols are there?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Five reels showing three symbols each, drawn from a set of nine space-themed icons: AT-AT, C-3PO, Darth Vader, Death Star, Millennium Falcon, R2-D2, Stormtrooper, TIE Fighter and Yoda." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the game open source?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The upstream project is johakr/html5-slot-machine on GitHub, released under the MIT License. The icon artwork is by KPD Media and is free for private and commercial use without attribution." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on mobile?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The layout is responsive and works in modern mobile browsers. Tap SPIN to play, or enable Autoplay for continuous spins." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#game">Skip to the game</a>
+
+<header class="site-header">
+  <h1 class="brand">Open Slots</h1>
+  <p class="badge">18+ · Play money only</p>
+  <nav aria-label="Primary navigation">
+    <a href="#game">Play</a>
+    <a href="#about">About</a>
+    <a href="#how-to-play">How to play</a>
+    <a href="#symbols">Symbols</a>
+    <a href="#faq">FAQ</a>
+    <a href="./privacy/">Privacy</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 游戏区：DOM 结构与上游 src/index.html 完全一致，游戏 JS 依赖这些 id / class -->
+  <section id="game" aria-label="Playable slot machine">
+    <div id="slot">
+      <div id="jackpot">Jackpot: <span id="jp">5.555.555</span></div>
+      <div id="reels">
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+      </div>
+      <div id="controls">
+        <button type="button" id="spin">SPIN</button>
+        <label>
+          <input type="checkbox" name="autoplay" id="autoplay" />
+          Autoplay
+        </label>
+      </div>
+    </div>
+    <p class="game-note">Free play-money demo · 18+ · No real money, deposits, cash-outs or prizes.</p>
+  </section>
+
+  <section id="about" aria-labelledby="about-title" class="content">
+    <h2 id="about-title">What is Open Slots?</h2>
+    <p>
+      <strong>Open Slots</strong> is a free, open-source HTML5 slot machine that runs entirely in your
+      browser. It is a lightweight demonstration of a five-reel casino game built with plain HTML,
+      CSS and vanilla JavaScript — no frameworks, no Flash, no build step at runtime and no external
+      network requests. Reel motion is powered by the browser's native
+      <abbr title="Web Animations API">WAAPI</abbr>.
+    </p>
+    <p>
+      This deployment is based on the popular upstream project
+      <a href="https://github.com/johakr/html5-slot-machine" rel="noopener noreferrer">johakr/html5-slot-machine</a>
+      (MIT License), adapted for static hosting with a zero-dependency ES-module build and an
+      added search- and AI-friendly content layer.
+    </p>
+    <ul class="feature-list">
+      <li>Five reels, three visible symbols per reel, nine distinct icons.</li>
+      <li>One-tap SPIN plus an Autoplay toggle for continuous play.</li>
+      <li>Fully responsive layout for desktop, tablet and mobile browsers.</li>
+      <li>Small footprint: a handful of static files, no tracking, no analytics, no cookies.</li>
+      <li>Keyboard accessible controls and a visible focus state.</li>
+    </ul>
+  </section>
+
+  <section id="how-to-play" aria-labelledby="how-title" class="content">
+    <h2 id="how-title">How to play</h2>
+    <ol class="steps">
+      <li>Open the page in any modern browser — nothing to install or sign up for.</li>
+      <li>Press <strong>SPIN</strong> (or focus it and press Enter / Space) to start the five reels.</li>
+      <li>The reels use staggered animation durations, so they settle one after another.</li>
+      <li>Optionally tick <strong>Autoplay</strong> to keep spinning automatically.</li>
+      <li>Read the on-screen jackpot counter as decoration — it is not a balance.</li>
+    </ol>
+    <p class="note">
+      This is a visual proof of concept. The upstream demo selects symbols uniformly at random and
+      does <em>not</em> compute wins, paylines, RTP or payouts.
+    </p>
+  </section>
+
+  <section id="symbols" aria-labelledby="symbols-title" class="content">
+    <h2 id="symbols-title">Symbols</h2>
+    <p>Nine space-themed icons are drawn at random on each of the five reels.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Open Slots symbol set</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Symbol</th><th scope="col">Asset</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>AT-AT</td><td><code>at_at.svg</code></td></tr>
+          <tr><td>2</td><td>C-3PO</td><td><code>c3po.svg</code></td></tr>
+          <tr><td>3</td><td>Darth Vader</td><td><code>darth_vader.svg</code></td></tr>
+          <tr><td>4</td><td>Death Star</td><td><code>death_star.svg</code></td></tr>
+          <tr><td>5</td><td>Millennium Falcon</td><td><code>falcon.svg</code></td></tr>
+          <tr><td>6</td><td>R2-D2</td><td><code>r2d2.svg</code></td></tr>
+          <tr><td>7</td><td>Stormtrooper</td><td><code>stormtrooper.svg</code></td></tr>
+          <tr><td>8</td><td>TIE Fighter</td><td><code>tie_ln.svg</code></td></tr>
+          <tr><td>9</td><td>Yoda</td><td><code>yoda.svg</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="fairness" aria-labelledby="fairness-title" class="content">
+    <h2 id="fairness-title">Fairness &amp; play-money policy</h2>
+    <p>
+      Open Slots is entertainment software, not a gambling operator. It uses play money only.
+      There is no real-money wagering, no deposit, no withdrawal, no prize, no cash-out and no
+      reward conversion. The jackpot display is a decorative counter inherited from the upstream
+      demo. The game does not require an account, does not collect personal data, does not set
+      cookies and makes no third-party requests.
+    </p>
+    <p>
+      Because the upstream project is a visual proof of concept, symbol selection is uniform
+      random and no paytable, payline evaluation or return-to-player (RTP) calculation is
+      implemented. Nothing on this page should be read as an offer of gambling.
+      Intended for adults 18 and over.
+    </p>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title" class="content">
+    <h2 id="faq-title">Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Is Open Slots free to play?</dt>
+      <dd>Yes. It is a free, open-source browser demo with no accounts, payments, downloads or real-money wagering.</dd>
+      <dt>Does this game pay real money?</dt>
+      <dd>No. It is a play-money demonstration with no cash-out, deposits, prizes or payout table. The jackpot counter is decorative.</dd>
+      <dt>What technology powers the reels?</dt>
+      <dd>Plain HTML, CSS and vanilla JavaScript. Reel motion uses the native Web Animations API — no frameworks, no Flash, no external runtime dependencies.</dd>
+      <dt>How many reels and symbols are there?</dt>
+      <dd>Five reels showing three symbols each, drawn from nine space-themed icons: AT-AT, C-3PO, Darth Vader, Death Star, Millennium Falcon, R2-D2, Stormtrooper, TIE Fighter and Yoda.</dd>
+      <dt>Is the game open source?</dt>
+      <dd>Yes. The upstream project is <a href="https://github.com/johakr/html5-slot-machine" rel="noopener noreferrer">johakr/html5-slot-machine</a> on GitHub under the MIT License. Icons are by KPD Media and are free for private and commercial use without attribution.</dd>
+      <dt>Does it work on mobile?</dt>
+      <dd>Yes. The layout is responsive and works in modern mobile browsers. Tap SPIN to play, or enable Autoplay for continuous spins.</dd>
+    </dl>
+  </section>
+
+  <section id="credits" aria-labelledby="credits-title" class="content">
+    <h2 id="credits-title">Open-source credits</h2>
+    <p>
+      Upstream: <a href="https://github.com/johakr/html5-slot-machine" rel="noopener noreferrer">johakr/html5-slot-machine</a>
+      by Johannes Kronmüller — MIT License. Icon artwork by
+      <a href="https://iconstore.co/icons/10-star-wars-icons/" rel="noopener noreferrer">KPD Media</a>,
+      free for private and commercial use without attribution. See
+      <a href="./CREDITS.md">CREDITS.md</a> and the bundled <a href="./LICENSE">LICENSE</a>.
+    </p>
+  </section>
+
+  <noscript>
+    <section class="content">
+      <h2>Open Slots requires JavaScript</h2>
+      <p>Open Slots is a free, open-source, five-reel play-money HTML5 slot machine built with vanilla
+      JavaScript and the Web Animations API. It is a visual demonstration only: there is no real
+      money, no payouts, no account and no download. Intended for adults 18 and over.</p>
+    </section>
+  </noscript>
+</main>
+
+<footer class="site-footer">
+  <p>Open Slots · Free open-source play-money demo · 18+ · No real money or prizes.</p>
+  <p><a href="./privacy/">Privacy &amp; fair play</a> · <a href="./llms.txt">AI summary (llms.txt)</a> · <a href="./CREDITS.md">Credits</a></p>
+</footer>
+
+<script type="module" src="./js/index.js"></script>
+</body>
+</html>

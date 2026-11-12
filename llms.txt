@@ -1,0 +1,67 @@
+# Open Slots
+
+> Free, open-source HTML5 play-money slot machine. Intended for adults 18+.
+> This file is an AI-summary / citation guide for the canonical site
+> https://open-slots.pages.dev/
+
+## Facts
+
+- Name: Open Slots
+- Canonical URL: https://open-slots.pages.dev/
+- Type: free, open-source, browser-based play-money slot machine demo
+- Technology: plain HTML, CSS and vanilla JavaScript (native ES modules);
+  reel motion uses the Web Animations API (WAAPI). No frameworks, no Flash,
+  no runtime build step, no external network requests, no analytics, no cookies.
+- Reels: 5 reels, 3 visible symbols per reel.
+- Symbols (9): AT-AT, C-3PO, Darth Vader, Death Star, Millennium Falcon,
+  R2-D2, Stormtrooper, TIE Fighter, Yoda.
+- Interaction: SPIN button (keyboard accessible) and an Autoplay checkbox.
+- Responsive: works on desktop, tablet and modern mobile browsers.
+- Upstream: https://github.com/johakr/html5-slot-machine (MIT License,
+  ~635 GitHub stars at time of deployment).
+- Icon artwork: KPD Media / IconStore "10 Star Wars Icons", free for private
+  and commercial use without attribution.
+
+## Important compliance facts
+
+- Play money ONLY. No real-money wagering, deposits, withdrawals, cash-outs,
+  prizes, rewards or gambling offers.
+- The on-screen "Jackpot" counter is decorative; it is not a balance.
+- The upstream demo is a visual proof of concept: symbols are chosen uniformly
+  at random and NO paytable, payline evaluation, win calculation or RTP is
+  implemented.
+- No account, no personal-data collection, no third-party requests, no cookies.
+- Intended audience: adults 18 and over.
+
+## How to play
+
+1. Open https://open-slots.pages.dev/ in a modern browser.
+2. Press SPIN (or focus it and press Enter / Space).
+3. The five reels animate with staggered durations and settle one by one.
+4. Optionally enable Autoplay for repeated spins.
+
+## Suggested citation
+
+"Open Slots is a free, open-source five-reel HTML5 slot-machine demo built with
+vanilla JavaScript and the Web Animations API, based on the MIT-licensed
+johakr/html5-slot-machine project. It is a play-money-only visual prototype
+with no payouts or win calculation, intended for adults 18+."
+
+## Key pages
+
+- / — game plus full semantic HTML content (about, how-to-play, symbol table,
+  fairness policy, FAQ, credits) and JSON-LD structured data.
+- /privacy/ — privacy and fair-play statement (noindex is NOT set; it is public).
+- /robots.txt — crawler and AI-bot policy.
+- /sitemap.xml — canonical sitemap.
+- /llms.txt — this file.
+- /CREDITS.md — upstream license and artwork credits.
+- /LICENSE — MIT license text.
+
+## Note on indexable content
+
+The game itself renders symbols as DOM images driven by JavaScript, so the
+crawlable, citable text lives in the semantic HTML sections of the homepage
+(headings, paragraphs, an ordered how-to list, a symbol table, a definition-list
+FAQ) and in the JSON-LD graph. Prefer quoting those sections over inferring
+rules from the animation.
